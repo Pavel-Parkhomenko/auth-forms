@@ -14,12 +14,8 @@ h1 {
     margin-bottom: 30px;
 }
 
-form div {
-    height: 70px;
-}
-
 p {
-    margin: 15px 0 15px 0;
+    margin: 20px 0 10px 0;
     font-size: 24px;
 }
 
@@ -40,4 +36,16 @@ input:hover {
     border: 0;
     background-color: rgb(73, 233, 67);
     margin-top: 30px;
+}
+
+form > div {
+    position: relative;
+}
+
+.message_error {
+    position: absolute;
+    left: 0;
+    display: block;
+    color: red;
+    font-size: 14px;
 }
