@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+span {
+    font-size: 50px;
+}
+
+.span__name {
+    color: rgb(73, 233, 67);
+}
+
+button {
+    width: 200px;
+    height: 30px;
+    background-color: inherit;
+    border: 3px solid rgb(240, 127, 127);
+    color:rgb(240, 127, 127);
+    margin-top: 50px;
+}
+
+button:hover {
+    box-shadow: 3px 3px 3px rgb(240, 127, 127);
+    cursor: pointer;
+}

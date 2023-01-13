@@ -4,10 +4,13 @@ import {
     conPasswordValidate,
     emailValidate,
     nameValidate,
-    errorAction
-} from './valid_module.js'
+    errorAction,
+    errorFromServer
+} from './valid_module3.js'
 
 const form = document.querySelector("form")
+const buttonRedirect = document.querySelector(".button__redirect")
+const messServerBox = document.querySelector('.container__bottom')
 
 const NAMES = {
     login: "login",
@@ -22,7 +25,7 @@ form.addEventListener("blur", (event) => {
 
     let elem = event.target
     let message;
-    
+
     switch(elem.name) {
         case NAMES.login:
             message = loginValidate(elem.value)
@@ -46,3 +49,24 @@ form.addEventListener("blur", (event) => {
             break
     }
 }, true)
+
+form.addEventListener('submit', async (e) => {
+    e.preventDefault()
+    if(form.querySelector('.message_error')) return
+    const res = await fetch("../php/registr.php", {
+        method: 'POST',
+        headers: {
+            'X-Requested-With': 'FetchAjaxRequest'
+          },
+        body: new FormData(form)
+    })
+    const data = await res.json()
+    // const data = await res.text()
+    console.log(data)
+    if(data.type === "success") location.href = "../index.php"
+    errorFromServer(messServerBox, data.message)
+})
+
+buttonRedirect.addEventListener('click', () => {
+    location.href = '../view/login.php'
+})

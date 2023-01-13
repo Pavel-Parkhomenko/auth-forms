@@ -14,33 +14,39 @@ class Repository
     {
         $file = file_get_contents($this->path);
         $users = json_decode($file, true) ?? [];
-        return $users;
+        $usersAsUser = [];
+        foreach ($users as $user) {
+            $usersAsUser[] = new User(...$user);
+        }
+        return $usersAsUser;
     }
 
-    public function update(User $user)
-    {
-        $users = $this->read();
-        $users[] = $user->getInfo();
-        file_put_contents($this->path, json_encode($users));
-    }
+    // public function update(User $user)
+    // {
+    //     $users = $this->read();
+    //     for ($i = 0; $i < count($users); $i++) {
+    //         if ($users[$i]->getLogin() === $user->getLogin()) {
+    //             $users[$i]->getEmail() = $user->getEmail();
+    //             $users[$i]->getName() = $user->getName();
+    //             $users[$i]->getPassword() = $user->getPassword();
+    //         }
+    //     }
+    //     file_put_contents($this->path, json_encode($users));
+    // }
 
     public function create(User $user)
     {
         $users = $this->read();
-
-        foreach ($users as $item) {
-            if ($user->getEmail() == $item["mail"] || $user->getLogin() == $item["login"]) {
-                exit('Такой логин или почта уже существует');
-            }
-        }
-        $this->update($user);
+        $users[] = $user;
+        file_put_contents($this->path, json_encode($users));
     }
 
-    public function delete(User $user) {
+    public function delete(User $user)
+    {
         $users = $this->read();
 
         foreach ($users as $key => $item) {
-            if ($users[$key]["login"] == $user->getLogin()) {
+            if ($users[$key]->getLogin() == $user->getLogin()) {
                 unset($users[$key]);
             }
         }

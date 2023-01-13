@@ -1,16 +1,26 @@
 <?php
 include_once 'Person.php';
 
-class User extends Person {
+class User extends Person implements JsonSerializable {
     private $login;
-    private $pass;
+    private $password;
     private $email;
+    private $salt;
 
-    function __construct($login, $pass, $email, $name) {
+    function __construct($login, $password, $email, $name, $salt) {
         parent::__construct($name);
         $this->login = $login;
-        $this->pass = $pass;
+        $this->password = $password;
         $this->email = $email;
+        $this->salt = $salt;
+    }
+
+    public function getSalt() {
+        return $this->salt;
+    }
+
+    public function setSalt($value) {
+        $this->salt = $value;
     }
 
     public function getLogin() {
@@ -21,12 +31,12 @@ class User extends Person {
         $this->login = $value;
     }
 
-    public function getPass() {
-        return $this->pass;
+    public function getPassword() {
+        return $this->password;
     }
 
-    public function setPass($value) {
-        $this->pass = $value;
+    public function setPassword($value) {
+        $this->password = $value;
     }
 
     public function getEmail() {
@@ -37,13 +47,14 @@ class User extends Person {
         $this->email = $value;
     }
 
-    public function getInfo()
+    public function jsonSerialize(): mixed
     {
         return [
-            'name' => $this->name, 
+            'name' => parent::getName(), 
             'email' => $this->email,
             'login' => $this->login,
-            'pass' => $this->pass,
+            'password' => $this->password,
+            'salt' => $this->salt,
         ];
     }
 }

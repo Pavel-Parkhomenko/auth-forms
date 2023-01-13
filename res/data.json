@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Dima",
+        "email": "dima@gmai.com",
+        "login": "dima123",
+        "password": ":x0*03:k70c9dc2d09299d9d21583266acc7681c",
+        "salt": ":x0*03:k"
+    },
+    {
+        "name": "Kolya",
+        "email": "kolya@gmail.com",
+        "login": "kolya1",
+        "password": "Fj~Bz~Tlc24a542f884e144451f9063b79e7994e",
+        "salt": "Fj~Bz~Tl"
+    },
+    {
+        "name": "Pavel",
+        "email": "pavel@gmail.com",
+        "login": "pavel123",
+        "password": "e%5Yp}!Kfa42f394efec6c1984cad271e57688aa",
+        "salt": "e%5Yp}!K"
+    },
+    {
+        "name": "Test",
+        "email": "test@gmail.com",
+        "login": "test123",
+        "password": "wN\/3d*Fycc03e747a6afbbcbf8be7668acfebee5",
+        "salt": "wN\/3d*Fy"
+    },
+    {
+        "name": "test",
+        "email": "test1@gmail.com",
+        "login": "test1234",
+        "password": "-KB>u.s;cc03e747a6afbbcbf8be7668acfebee5",
+        "salt": "-KB>u.s;"
+    }
+]
