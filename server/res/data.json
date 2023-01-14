@@ -30,5 +30,21 @@
         "password": "O\\df#FR!fa42f394efec6c1984cad271e57688aa",
         "salt": "O\\df#FR!",
         "cookie": "j>^XU0#E"
+    },
+    {
+        "name": "Pavel",
+        "email": "pavel1@gmail.com",
+        "login": "pavel11",
+        "password": "NIi%\/80^34b2212452bc2c6493b157ea4bff5f26",
+        "salt": "NIi%\/80^",
+        "cookie": "![RZ]Wek"
+    },
+    {
+        "name": "PavelParkhomenko",
+        "email": "pavel12@gmail.com",
+        "login": "pavel111",
+        "password": "|=sX\/l?gf8f46e6e2387da126060a7dba5d9fccd",
+        "salt": "|=sX\/l?g",
+        "cookie": "A>=8?)+s"
     }
 ]

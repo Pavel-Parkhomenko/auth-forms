@@ -28,7 +28,7 @@ if (!$_SESSION['isAuth']) {
         </div>
         <button type="submit" class="button__exit">Выйти</button>
     </form>
-    <script type="module" src="./js/index1.js"></script>
+    <script type="module" src="./js/index.js"></script>
 </body>
 
 </html>

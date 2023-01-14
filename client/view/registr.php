@@ -57,7 +57,7 @@ if (isset($_SESSION['isAuth'])) {
             </span>
         </div>
     </form>
-    <script type="module" src="../js/registr2.js"></script>
+    <script type="module" src="../js/registr.js"></script>
 </body>
 
 </html>
