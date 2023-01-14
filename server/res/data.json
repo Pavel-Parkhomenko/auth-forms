@@ -1,0 +1,34 @@
+[
+    {
+        "name": "Test",
+        "email": "test5@gmail.com",
+        "login": "test12345",
+        "password": "PuFNT59gcc03e747a6afbbcbf8be7668acfebee5",
+        "salt": "PuFNT59g",
+        "cookie": "PuFNT59g"
+    },
+    {
+        "name": "Pavel",
+        "email": "pavel4@gmai.com",
+        "login": "pavel12",
+        "password": "W~uO;jhMfa42f394efec6c1984cad271e57688aa",
+        "salt": "W~uO;jhM",
+        "cookie": "W~uO;jhM"
+    },
+    {
+        "name": "Test",
+        "email": "test@gmail.com",
+        "login": "test123",
+        "password": "wf7DHkT0cc03e747a6afbbcbf8be7668acfebee5",
+        "salt": "wf7DHkT0",
+        "cookie": "wf7DHkT0"
+    },
+    {
+        "name": "Pavel",
+        "email": "pavel@gmail.com",
+        "login": "pavel123",
+        "password": "O\\df#FR!fa42f394efec6c1984cad271e57688aa",
+        "salt": "O\\df#FR!",
+        "cookie": "j>^XU0#E"
+    }
+]

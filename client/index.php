@@ -21,14 +21,14 @@ if (!$_SESSION['isAuth']) {
         <div>
             <span>Hello, </span>
             <?php
-            if ($_SESSION['name']) {
+            if (isset($_SESSION["name"])) {
                 echo "<span class='span__name'>" . $_SESSION["name"] . "</span>";
             }
             ?>
         </div>
         <button type="submit" class="button__exit">Выйти</button>
     </form>
-    <script type="module" src="./js/index.js"></script>
+    <script type="module" src="./js/index1.js"></script>
 </body>
 
 </html>

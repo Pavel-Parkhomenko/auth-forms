@@ -6,7 +6,7 @@ if ($_SERVER['HTTP_X_REQUESTED_WITH'] !== "FetchAjaxRequest")
 require_once("./Repository.php");
 require_once("../constants/constants.php");
 require_once("./User.php");
-require_once("./helpers.php");
+require("./helpers.php");
 
 $repository = new Repository(PATH);
 $users = $repository->read();
@@ -36,15 +36,14 @@ foreach ($users as $user) {
     }
 }
 
-function addNewUser($repository, $login, $password, $email, $name, $salt)
+function addNewUser($repository, $login, $password, $email, $name, $salt, $cookie)
 {
-    $user = new User($login, $salt . md5($password), $email, $name, $salt);
+    $user = new User($login, $salt . md5($password), $email, $name, $salt, $cookie);
     $repository->create($user);
     $errors["type"] = "success";
     $errors["message"] = "";
-    $_SESSION["isAuth"] = true;
-    $_SESSION["name"] = $user->getName();
+    saveUserSession($user->getName(), $user->getCookie(), $user->getName());
     echo json_encode($errors);
 }
 
-addNewUser($repository, $login, $password, $email, $name, $salt);
+addNewUser($repository, $login, $password, $email, $name, $salt, generateSalt());

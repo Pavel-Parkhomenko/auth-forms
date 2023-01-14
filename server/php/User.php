@@ -6,13 +6,23 @@ class User extends Person implements JsonSerializable {
     private $password;
     private $email;
     private $salt;
+    private $cookie;
 
-    function __construct($login, $password, $email, $name, $salt) {
+    function __construct($login, $password, $email, $name, $salt, $cookie) {
         parent::__construct($name);
         $this->login = $login;
         $this->password = $password;
         $this->email = $email;
         $this->salt = $salt;
+        $this->cookie = $cookie;
+    }
+
+    public function getCookie() {
+        return $this->cookie;
+    }
+
+    public function setCookie($value) {
+        $this->cookie = $value;
     }
 
     public function getSalt() {
@@ -55,6 +65,7 @@ class User extends Person implements JsonSerializable {
             'login' => $this->login,
             'password' => $this->password,
             'salt' => $this->salt,
+            'cookie' => $this->cookie
         ];
     }
 }

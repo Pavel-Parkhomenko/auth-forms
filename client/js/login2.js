@@ -1,12 +1,13 @@
 import {
     loginValidate, 
     passwordValidate,
-    conPasswordValidate,
-    emailValidate,
-    nameValidate,
     errorAction,
-    errorFromServer
-} from './valid_module3.js'
+    errorFromServer,
+    checkCookie
+} from './module.js'
+
+console.log("checj cookie")
+checkCookie()
 
 const form = document.querySelector("form")
 const buttonRedirect = document.querySelector(".button__redirect")
@@ -14,10 +15,7 @@ const messServerBox = document.querySelector('.container__bottom')
 
 const NAMES = {
     login: "login",
-    password: "password",
-    name: 'name',
-    email: 'email',
-    conPassword: 'conPassword'
+    password: "password"
 }
 
 form.addEventListener("blur", (event) => {
@@ -25,7 +23,6 @@ form.addEventListener("blur", (event) => {
 
     let elem = event.target
     let message;
-
     switch(elem.name) {
         case NAMES.login:
             message = loginValidate(elem.value)
@@ -35,25 +32,16 @@ form.addEventListener("blur", (event) => {
             message = passwordValidate(elem.value)
             errorAction(elem, message)
             break
-        case NAMES.conPassword:
-            message = conPasswordValidate(elem.value)
-            errorAction(elem, message)
-            break
-        case NAMES.email:
-            message = emailValidate(elem.value)
-            errorAction(elem, message)
-            break
-        case NAMES.name:
-            message = nameValidate(elem.value)
-            errorAction(elem, message)
-            break
     }
 }, true)
+
+console.log('login 2')
+
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault()
     if(form.querySelector('.message_error')) return
-    const res = await fetch("../php/registr.php", {
+    const res = await fetch("../../server/php/login.php", {
         method: 'POST',
         headers: {
             'X-Requested-With': 'FetchAjaxRequest'
@@ -68,5 +56,5 @@ form.addEventListener('submit', async (e) => {
 })
 
 buttonRedirect.addEventListener('click', () => {
-    location.href = '../view/login.php'
+    location.href = '../view/registr.php'
 })

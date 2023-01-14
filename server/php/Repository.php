@@ -1,7 +1,8 @@
 <?php
-include_once 'User.php';
+include_once('./User.php');
+include_once('./IRepository.php');
 
-class Repository
+class Repository implements IRepository
 {
     private $path;
 
@@ -21,18 +22,18 @@ class Repository
         return $usersAsUser;
     }
 
-    // public function update(User $user)
-    // {
-    //     $users = $this->read();
-    //     for ($i = 0; $i < count($users); $i++) {
-    //         if ($users[$i]->getLogin() === $user->getLogin()) {
-    //             $users[$i]->getEmail() = $user->getEmail();
-    //             $users[$i]->getName() = $user->getName();
-    //             $users[$i]->getPassword() = $user->getPassword();
-    //         }
-    //     }
-    //     file_put_contents($this->path, json_encode($users));
-    // }
+    public function update(User $user)
+    {
+        $users = $this->read();
+        for ($i = 0; $i < count($users); $i++) {
+            if ($users[$i]->getLogin() === $user->getLogin()) {
+                $users[$i]->setEmail($user->getEmail());
+                $users[$i]->setName($user->getName());
+                $users[$i]->setPassword($user->getPassword());
+            }
+        }
+        file_put_contents($this->path, json_encode($users));
+    }
 
     public function create(User $user)
     {

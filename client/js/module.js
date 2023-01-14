@@ -68,3 +68,14 @@ export function errorFromServer(container, message) {
         container.querySelector('.message_server').textContent = message
     }
 }
+
+export function checkCookie() {
+    document.addEventListener("DOMContentLoaded", async (e) => {
+        e.preventDefault()
+        const res = await fetch("../../server/php/cookie.php")
+        const data = await res.text()
+        console.log(data)
+        // if(data.status === "ok")
+        //     location.reload()
+    })
+}

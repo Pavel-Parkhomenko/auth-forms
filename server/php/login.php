@@ -3,12 +3,11 @@
 if ($_SERVER['HTTP_X_REQUESTED_WITH'] !== "FetchAjaxRequest")
     exit();
 
-session_start();
-
 require_once("./Person.php");
 require_once("./Repository.php");
 require_once("../constants/constants.php");
 require_once("./User.php");
+require("./helpers.php");
 
 $repository = new Repository(PATH);
 
@@ -39,7 +38,6 @@ function loginSuccess($user)
 {
     $errors["type"] = "success";
     $errors["message"] = "";
-    $_SESSION["isAuth"] = true;
-    $_SESSION["name"] = $user->getName();
+    saveUserSession($user->getLogin(), $user->getCookie(), $user->getName());
     echo json_encode($errors);
 }
