@@ -1,5 +1,7 @@
 <?php
-
+/* Клиент всегда должен устанавливать этот заголовок со значением "FetchAjaxRequest".
+Это проверка на то, что клиент использует Ajax.
+*/
 if ($_SERVER['HTTP_X_REQUESTED_WITH'] !== "FetchAjaxRequest")
     exit();
 
@@ -18,6 +20,7 @@ $errors = [];
 
 $hasUser = false;
 
+// Провереем пользователя на наличие в бд
 foreach ($users as $user) {
     if (
         $user->getLogin() === $login &&
@@ -27,7 +30,7 @@ foreach ($users as $user) {
         loginSuccess($user);
     }
 }
-
+// если пользователь не найден, то клиент получит соотвествующее сообщение
 if ($hasUser === false) {
     $errors["type"] = "not-find";
     $errors["message"] = "Неверный логин или пароль";
@@ -36,7 +39,7 @@ if ($hasUser === false) {
 
 function loginSuccess($user)
 {
-    $errors["type"] = "success";
+    $errors["type"] = "";
     $errors["message"] = "";
     saveUserSession($user->getLogin(), $user->getCookie(), $user->getName());
     echo json_encode($errors);

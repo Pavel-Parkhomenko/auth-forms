@@ -1,13 +1,10 @@
 import {
     loginValidate, 
     passwordValidate,
-    conPasswordValidate,
-    emailValidate,
-    nameValidate,
     errorAction,
     errorFromServer,
     checkCookie
-} from './module1.js'
+} from './module.js'
 
 import {
     SERVER_PATH
@@ -21,18 +18,15 @@ const messServerBox = document.querySelector('.container__bottom')
 
 const NAMES = {
     login: "login",
-    password: "password",
-    name: 'name',
-    email: 'email',
-    conPassword: 'conPassword'
+    password: "password"
 }
 
+// событие потери фокуса. При потери фокуса срабатывает функция проверки
 form.addEventListener("blur", (event) => {
     if(event.target.tagName !== "INPUT") return
 
     let elem = event.target
     let message;
-
     switch(elem.name) {
         case NAMES.login:
             message = loginValidate(elem.value)
@@ -42,25 +36,14 @@ form.addEventListener("blur", (event) => {
             message = passwordValidate(elem.value)
             errorAction(elem, message)
             break
-        case NAMES.conPassword:
-            message = conPasswordValidate(elem.value)
-            errorAction(elem, message)
-            break
-        case NAMES.email:
-            message = emailValidate(elem.value)
-            errorAction(elem, message)
-            break
-        case NAMES.name:
-            message = nameValidate(elem.value)
-            errorAction(elem, message)
-            break
     }
 }, true)
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault()
+    // если у нас висит сообщение об ошибке, то форму не отправляем
     if(form.querySelector('.message_error')) return
-    const res = await fetch(SERVER_PATH + "registr.php", {
+    const res = await fetch(SERVER_PATH + "login.php", {
         method: 'POST',
         headers: {
             'X-Requested-With': 'FetchAjaxRequest'
@@ -68,10 +51,11 @@ form.addEventListener('submit', async (e) => {
         body: new FormData(form)
     })
     const data = await res.json()
+    // если сервер вернул type: succes (успех), то делаем редирект на главую страницу
     if(data.type === "success") location.href = "../index.php"
     errorFromServer(messServerBox, data.message)
 })
 
 buttonRedirect.addEventListener('click', () => {
-    location.href = '../view/login.php'
+    location.href = '../view/registr.php'
 })

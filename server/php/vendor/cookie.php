@@ -1,5 +1,10 @@
 <?php 
-
+/*
+Сначала мы проверям сессию. Если она не активна, то мы проверемя наличие cookkie.
+Идея заключается в том, что, если пользователь входит с нового окна браузера (новая сессия),
+то, зная cookie, мы создадим новую сессию, котороя позволит избежать новой авторизации.
+Cookie проверяются в бд на наличие пользователя с такими данными.
+*/
 require_once("../repository/Repository.php");
 require_once("../model/User.php");
 require("./constants.php");
@@ -23,7 +28,6 @@ if (!isset($_SESSION['isAuth'])) {
         }
 
         if (!empty($user)) {
-
             $_SESSION["isAuth"] = true; 
             $_SESSION["name"] = $user->getName(); 
         }

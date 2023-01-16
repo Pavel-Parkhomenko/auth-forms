@@ -57,6 +57,12 @@ export function errorAction(elem, message) {
     }
 }
 
+/*
+Функция, которая выводит сообщение об ошибке клиента.
+Ошибка выводится под полем input (elem) в родительском контейнере.
+Если контейнер уже имеет собщение, то просто заменяется текс, если нет - 
+то создается новое сообщение
+*/
 function messageError(elem, message) {
     if (!elem.parentNode.querySelector(".message_error")) {
         elem.insertAdjacentHTML('afterend', `<span class="message_error">${message}</span>`);
@@ -65,6 +71,11 @@ function messageError(elem, message) {
     }
 }
 
+/*
+Данная функция выводит сообщение с сервера, такие как 
+"Такой логин уже существует", "Неверный логин или пароль" и тп.
+Сообщения выводятся под основной формой
+*/
 export function errorFromServer(container, message) {
     if (!container.querySelector(".message_server")) {
         container.insertAdjacentHTML('beforeend', `<span class="message_server">${message}</span>`);
@@ -73,6 +84,9 @@ export function errorFromServer(container, message) {
     }
 }
 
+/*
+При загрузке страницы проверяем наличие cookie.
+*/
 export function checkCookie() {
     document.addEventListener("DOMContentLoaded", async (e) => {
         e.preventDefault()
