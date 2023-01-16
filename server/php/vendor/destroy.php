@@ -2,9 +2,10 @@
 
 session_start();
 
-if (isset($_SESSION['isAuth'])) {
-    session_destroy();
-    setcookie('login', '', 1);
-    setcookie('key', '', 1);
-    echo json_encode(["status" => "ok", "message" => "Сессия успешно удалена"]);
-}
+setcookie("login", "UNDEFINED", time() - 60 * 60 * 24 * 30, "/");
+setcookie("key", "UNDEFINED", time() - 60 * 60 * 24 * 30, "/");
+// $_COOKIE = array();
+session_destroy();
+echo json_encode(["status" => "ok", "message" => "Сессия успешно удалена"]);
+
+?>

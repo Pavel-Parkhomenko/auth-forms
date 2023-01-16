@@ -7,7 +7,7 @@ import {
     errorAction,
     errorFromServer,
     checkCookie
-} from './module.js'
+} from './module1.js'
 
 import {
     SERVER_PATH

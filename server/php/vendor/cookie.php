@@ -2,7 +2,7 @@
 
 require_once("../repository/Repository.php");
 require_once("../model/User.php");
-require("../constants/constants.php");
+require("./constants.php");
 
 session_start();
 

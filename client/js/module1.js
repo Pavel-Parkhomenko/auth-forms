@@ -76,6 +76,8 @@ export function errorFromServer(container, message) {
 export function checkCookie() {
     document.addEventListener("DOMContentLoaded", async (e) => {
         e.preventDefault()
-        await fetch(SERVER_PATH + "cookie.php")
+        const res = await fetch(SERVER_PATH + "cookie.php")
+        const data = await res.text()
+        console.log(data)
     })
 }

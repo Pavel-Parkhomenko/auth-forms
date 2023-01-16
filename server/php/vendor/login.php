@@ -3,10 +3,11 @@
 if ($_SERVER['HTTP_X_REQUESTED_WITH'] !== "FetchAjaxRequest")
     exit();
 
+require_once("../model/Person.php");
 require_once("../repository/Repository.php");
-require_once("../constants/constants.php");
-require_once("./model/User.php");
+require_once("../model/User.php");
 require("../helpers/helpers.php");
+require("./constants.php");
 
 $repository = new Repository(PATH);
 

@@ -46,5 +46,21 @@
         "password": "|=sX\/l?gf8f46e6e2387da126060a7dba5d9fccd",
         "salt": "|=sX\/l?g",
         "cookie": "A>=8?)+s"
+    },
+    {
+        "name": "Stas",
+        "email": "stas@gmail.com",
+        "login": "stas123",
+        "password": "fzGdwkA22b3ffa9163c5444fc0c5c9f0b116305d",
+        "salt": "fzGdwkA2",
+        "cookie": "5'Q4udxP"
+    },
+    {
+        "name": "Dima",
+        "email": "dima@gmail.com",
+        "login": "dima123",
+        "password": "Wr\/#\"t.<70c9dc2d09299d9d21583266acc7681c",
+        "salt": "Wr\/#\"t.<",
+        "cookie": "+-BT4Y<}"
     }
 ]

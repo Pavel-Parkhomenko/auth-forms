@@ -13,8 +13,8 @@ function generateSalt()
 
 function saveUserSession($login, $key, $name)
 {
-    setcookie("login", $login, time() + 60 * 60 * 24 * 30);
-    setcookie("key", $key, time() + 60 * 60 * 24 * 30);
+    setcookie("login", $login, time() + 60 * 60 * 24 * 30, "/");
+    setcookie("key", $key, time() + 60 * 60 * 24 * 30, "/");
     session_start();
     $_SESSION["isAuth"] = true;
     $_SESSION["name"] = $name;
