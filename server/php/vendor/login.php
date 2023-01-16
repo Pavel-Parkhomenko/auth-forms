@@ -39,7 +39,7 @@ if ($hasUser === false) {
 
 function loginSuccess($user)
 {
-    $errors["type"] = "";
+    $errors["type"] = "success";
     $errors["message"] = "";
     saveUserSession($user->getLogin(), $user->getCookie(), $user->getName());
     echo json_encode($errors);
