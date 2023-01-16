@@ -1,13 +1,14 @@
+import {
+    SERVER_PATH
+} from '../constants/constants.js'
+
 const buttomExit = document.querySelector(".container")
 
-console.log("index 1")
-
-buttomExit.addEventListener("submit", async (e) => {
+// событие
+buttomExit.addEventListener("click", async (e) => {
     e.preventDefault()
-    const res = await fetch("http://localhost/task-forms/server/php/destroy.php")
+    const res = await fetch(SERVER_PATH + "destroy.php")
     const data = await res.json()
-    // const data = await res.text()
-    // console.log(data)
-    if(data.status === "ok")
-        location.reload()
+    // if(data.status === "ok")
+    //     location.reload()
 })

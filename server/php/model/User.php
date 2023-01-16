@@ -1,5 +1,5 @@
 <?php
-include_once 'Person.php';
+include_once './Person.php';
 
 class User extends Person implements JsonSerializable {
     private $login;

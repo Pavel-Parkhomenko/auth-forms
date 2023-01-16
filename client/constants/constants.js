@@ -1,0 +1,1 @@
+export const SERVER_PATH = "http://localhost/task-forms/server/php/vendor/"

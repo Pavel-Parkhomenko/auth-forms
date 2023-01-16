@@ -1,7 +1,7 @@
 <?php 
 
-require_once("./Repository.php");
-require_once("./User.php");
+require_once("../repository/Repository.php");
+require_once("../model/User.php");
 require("../constants/constants.php");
 
 session_start();

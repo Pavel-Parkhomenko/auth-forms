@@ -1,5 +1,5 @@
 <?php
-include_once('./User.php');
+include_once('../model/User.php');
 include_once('./IRepository.php');
 
 class Repository implements IRepository

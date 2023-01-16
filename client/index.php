@@ -17,7 +17,7 @@ if (!$_SESSION['isAuth']) {
 </head>
 
 <body>
-    <form class="container">
+    <div class="container">
         <div>
             <span>Hello, </span>
             <?php
@@ -26,8 +26,8 @@ if (!$_SESSION['isAuth']) {
             }
             ?>
         </div>
-        <button type="submit" class="button__exit">Выйти</button>
-    </form>
+        <button type="button" class="button__exit">Выйти</button>
+    </в>
     <script type="module" src="./js/index.js"></script>
 </body>
 

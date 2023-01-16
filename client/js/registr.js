@@ -9,6 +9,10 @@ import {
     checkCookie
 } from './module.js'
 
+import {
+    SERVER_PATH
+} from '../constants/constants.js'
+
 checkCookie()
 
 const form = document.querySelector("form")
@@ -56,7 +60,7 @@ form.addEventListener("blur", (event) => {
 form.addEventListener('submit', async (e) => {
     e.preventDefault()
     if(form.querySelector('.message_error')) return
-    const res = await fetch("../../server/php/registr.php", {
+    const res = await fetch(SERVER_PATH + "registr.php", {
         method: 'POST',
         headers: {
             'X-Requested-With': 'FetchAjaxRequest'
@@ -64,8 +68,6 @@ form.addEventListener('submit', async (e) => {
         body: new FormData(form)
     })
     const data = await res.json()
-    // const data = await res.text()
-    console.log(data)
     if(data.type === "success") location.href = "../index.php"
     errorFromServer(messServerBox, data.message)
 })

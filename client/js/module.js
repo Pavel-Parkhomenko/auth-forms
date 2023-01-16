@@ -1,3 +1,7 @@
+import {
+    SERVER_PATH
+} from '../constants/constants.js'
+
 export function loginValidate(login) {
     if (/\s/g.test(login)) {
         return "Логин не должен содержать пробелы"
@@ -72,10 +76,6 @@ export function errorFromServer(container, message) {
 export function checkCookie() {
     document.addEventListener("DOMContentLoaded", async (e) => {
         e.preventDefault()
-        const res = await fetch("../../server/php/cookie.php")
-        const data = await res.text()
-        console.log(data)
-        // if(data.status === "ok")
-        //     location.reload()
+        await fetch(SERVER_PATH + "cookie.php")
     })
 }
