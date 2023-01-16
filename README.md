@@ -5,7 +5,7 @@
 
 **Client:** JavaScript, HTML, CSS
 
-**Server:** PHP 8.2.1, Apache24
+**Server:** Apache/2.4.54 (Win64) PHP/8.2.1
 
 ## Functions
 - save session
