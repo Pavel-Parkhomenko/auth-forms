@@ -56,7 +56,7 @@ form.addEventListener('submit', async (e) => {
         if(data.type === "success") location.href = "../index.php"
         errorFromServer(messServerBox, data.message)
     } catch(e){
-        errorFromServer(messServerBox, "Ошибка на сервере")
+        errorFromServer(messServerBox, "Кажется, ошибка на сервере")
     }
 
 })
