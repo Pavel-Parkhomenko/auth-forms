@@ -33,8 +33,5 @@ Start Apache24 Server
 Start
 
 ```bash
-  http://localhost/task-forms/client/index.php
+  http://IP:PORT/task-forms/client/index.php
 ```
-
-### ❗❗❗ Important
-In the Apache24 configuration, you must specify the "localhost" folder and move this project there
