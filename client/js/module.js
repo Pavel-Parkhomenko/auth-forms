@@ -16,11 +16,11 @@ export function passwordValidate(password) {
     currentPassword = password
     if (/\s/g.test(password)) {
         return "Пароль не должен содержать пробелы"
-    } else if (password.length <= 6) {
+    } else if (password.length < 6) {
         return "Пароль должен быть больше 6 символов"
     } else if (!/[0-9]/.test(password)) {
         return "Пароль должен содержать цифру"
-    } else if (!/[a-zA-z]/.test(password)) {
+    } else if (!/[a-zA-Z]/.test(password)) {
         return "Пароль должен содержать букву"
     } else return 0
 }

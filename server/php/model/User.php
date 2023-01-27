@@ -1,7 +1,7 @@
 <?php
 include_once 'Person.php';
 
-class User extends Person implements JsonSerializable {
+class User extends Person {
     private $login;
     private $password;
     private $email;
@@ -57,7 +57,7 @@ class User extends Person implements JsonSerializable {
         $this->email = $value;
     }
 
-    public function jsonSerialize(): mixed
+    public function getInfo()
     {
         return [
             'name' => parent::getName(), 

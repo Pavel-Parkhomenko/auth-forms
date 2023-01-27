@@ -37,23 +37,28 @@ form.addEventListener("blur", (event) => {
             errorAction(elem, message)
             break
     }
-}, true)
+}, true)  
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault()
     // если у нас висит сообщение об ошибке, то форму не отправляем
     if(form.querySelector('.message_error')) return
-    const res = await fetch(SERVER_PATH + "login.php", {
-        method: 'POST',
-        headers: {
-            'X-Requested-With': 'FetchAjaxRequest'
-          },
-        body: new FormData(form)
-    })
-    const data = await res.json()
-    // если сервер вернул type: succes (успех), то делаем редирект на главую страницу
-    if(data.type === "success") location.href = "../index.php"
-    errorFromServer(messServerBox, data.message)
+    try{
+        const res = await fetch(SERVER_PATH + "login.php", {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'FetchAjaxRequest'
+              },
+            body: new FormData(form)
+        })
+        const data = await res.json()
+        // если сервер вернул type: succes (успех), то делаем редирект на главую страницу
+        if(data.type === "success") location.href = "../index.php"
+        errorFromServer(messServerBox, data.message)
+    } catch(e){
+        errorFromServer(messServerBox, e.message)
+    }
+
 })
 
 buttonRedirect.addEventListener('click', () => {

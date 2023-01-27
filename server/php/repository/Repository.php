@@ -39,7 +39,11 @@ class Repository implements IRepository
     {
         $users = $this->read();
         $users[] = $user;
-        file_put_contents($this->path, json_encode($users));
+        $usersToJson = [];
+        foreach($users as $user){
+            $usersToJson[] = $user->getInfo();
+        }
+        file_put_contents($this->path, json_encode($usersToJson));
     }
 
     public function delete(User $user)
