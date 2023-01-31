@@ -1,1 +1,50 @@
-[{"name":"Test","email":"test5@gmail.com","login":"test12345","password":"PuFNT59gcc03e747a6afbbcbf8be7668acfebee5","salt":"PuFNT59g","cookie":"PuFNT59g"},{"name":"Pavel","email":"pavel4@gmai.com","login":"pavel12","password":"W~uO;jhMfa42f394efec6c1984cad271e57688aa","salt":"W~uO;jhM","cookie":"W~uO;jhM"},{"name":"user","email":"user@gmail.com","login":"user01","password":"-E?(8t6[b75705d7e35e7014521a46b532236ec3","salt":"-E?(8t6[","cookie":"T&uZ7g|["},{"name":"pavel","email":"pavel@gmail.com","login":"user02","password":">[r5VF)t8bd108c8a01a892d129c52484ef97a0d","salt":">[r5VF)t","cookie":"I,Ry$N!q"}]
+[
+    {
+        "name": "Test",
+        "email": "test5@gmail.com",
+        "login": "test12345",
+        "password": "PuFNT59gcc03e747a6afbbcbf8be7668acfebee5",
+        "salt": "PuFNT59g",
+        "cookie": "PuFNT59g"
+    },
+    {
+        "name": "Pavel",
+        "email": "pavel4@gmai.com",
+        "login": "pavel12",
+        "password": "W~uO;jhMfa42f394efec6c1984cad271e57688aa",
+        "salt": "W~uO;jhM",
+        "cookie": "W~uO;jhM"
+    },
+    {
+        "name": "user",
+        "email": "user@gmail.com",
+        "login": "user01",
+        "password": "-E?(8t6[b75705d7e35e7014521a46b532236ec3",
+        "salt": "-E?(8t6[",
+        "cookie": "T&uZ7g|["
+    },
+    {
+        "name": "pavel",
+        "email": "pavel@gmail.com",
+        "login": "user02",
+        "password": ">[r5VF)t8bd108c8a01a892d129c52484ef97a0d",
+        "salt": ">[r5VF)t",
+        "cookie": "I,Ry$N!q"
+    },
+    {
+        "name": "Pavel",
+        "email": "pavel1@gmail.com",
+        "login": "pavel1",
+        "password": ")iAZ\\m\"Hfa42f394efec6c1984cad271e57688aa",
+        "salt": ")iAZ\\m\"H",
+        "cookie": "NX8]?RN]"
+    },
+    {
+        "name": "Pavel12",
+        "email": "pavel2@mail.ru",
+        "login": "pavel2",
+        "password": "t1,Tt\"~Afa42f394efec6c1984cad271e57688aa",
+        "salt": "t1,Tt\"~A",
+        "cookie": "hue@:}uV"
+    }
+]

@@ -5,8 +5,7 @@ import {
 export function loginValidate(login) {
     if (/\s/g.test(login)) {
         return "Логин не должен содержать пробелы"
-    }
-    else if (login.length < 6) {
+    } else if (login.length < 6) {
         return "Логин должен быть больше 6 символов"
     } else return 0
 }
@@ -22,6 +21,8 @@ export function passwordValidate(password) {
         return "Пароль должен содержать цифру"
     } else if (!/[a-zA-Z]/.test(password)) {
         return "Пароль должен содержать букву"
+    } else if (password.replace(/[0-9a-zA-Z]/g, '').length) {
+        return "Пароль не должен содержать символы"
     } else return 0
 }
 
@@ -32,6 +33,8 @@ export function nameValidate(name) {
         return "Имя должно быть больше 2 символов"
     } else if (/[0-9]/.test(name)) {
         return "Имя должно состоять только из букв"
+    } else if (name.replace(/[a-zA-Z]/g, '').length) {
+        return "Имя не должно содержать символы"
     } else return 0
 }
 

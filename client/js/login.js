@@ -1,5 +1,5 @@
 import {
-    loginValidate, 
+    loginValidate,
     passwordValidate,
     errorAction,
     errorFromServer,
@@ -23,11 +23,11 @@ const NAMES = {
 
 // событие потери фокуса. При потери фокуса срабатывает функция проверки
 form.addEventListener("blur", (event) => {
-    if(event.target.tagName !== "INPUT") return
+    if (event.target.tagName !== "INPUT") return
 
     let elem = event.target
     let message;
-    switch(elem.name) {
+    switch (elem.name) {
         case NAMES.login:
             message = loginValidate(elem.value)
             errorAction(elem, message)
@@ -37,30 +37,30 @@ form.addEventListener("blur", (event) => {
             errorAction(elem, message)
             break
     }
-}, true)  
+}, true)
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault()
     // если у нас висит сообщение об ошибке, то форму не отправляем
-    if(form.querySelector('.message_error')) return
-    try{
+    if (form.querySelector('.message_error')) return
+    try {
         const res = await fetch(SERVER_PATH + "login.php", {
             method: 'POST',
             headers: {
                 'X-Requested-With': 'FetchAjaxRequest'
-              },
+            },
             body: new FormData(form)
         })
         const data = await res.json()
         // если сервер вернул type: succes (успех), то делаем редирект на главую страницу
-        if(data.type === "success") location.href = "../index.php"
+        if (data.type === "success") location.href = "../client/index.php"
         errorFromServer(messServerBox, data.message)
-    } catch(e){
-        errorFromServer(messServerBox, "Кажется, ошибка на сервере")
+    } catch (e) {
+        errorFromServer(messServerBox, "Кажется, ошибка на сервере :(")
     }
 
 })
 
 buttonRedirect.addEventListener('click', () => {
-    location.href = '../view/registr.php'
+    location.href = './registr.php'
 })

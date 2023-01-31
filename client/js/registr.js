@@ -60,19 +60,23 @@ form.addEventListener("blur", (event) => {
 form.addEventListener('submit', async (e) => {
     e.preventDefault()
     if(form.querySelector('.message_error')) return
-    const res = await fetch(SERVER_PATH + "registr.php", {
-        method: 'POST',
-        headers: {
-            'X-Requested-With': 'FetchAjaxRequest'
-          },
-        body: new FormData(form)
-    })
-    const data = await res.json()
-    if(data.type === "success") location.href = "../index.php"
-    errorFromServer(messServerBox, data.message)
+    try {
+        const res = await fetch(SERVER_PATH + "registr.php", {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'FetchAjaxRequest'
+              },
+            body: new FormData(form)
+        })
+        const data = await res.json()
+        if(data.type === "success") location.href = "../client/index.php"
+        errorFromServer(messServerBox, data.message)
+    } catch(e) {
+        errorFromServer(messServerBox, "Кажется, ошибка на сервере :(")
+    }
 })
 
 // событие, которое позволяет нам с формы регистрации перейти на форму входа
 buttonRedirect.addEventListener('click', () => {
-    location.href = '../view/login.php'
+    location.href = './login.php'
 })
