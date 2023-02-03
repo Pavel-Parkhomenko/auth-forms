@@ -29,7 +29,7 @@ export function passwordValidate(password) {
 export function nameValidate(name) {
     if (/\s/g.test(name)) {
         return "Имя не должно содержать пробелы"
-    } else if (name <= 2) {
+    } else if (name.length < 2) {
         return "Имя должно быть больше 2 символов"
     } else if (/[0-9]/.test(name)) {
         return "Имя должно состоять только из букв"

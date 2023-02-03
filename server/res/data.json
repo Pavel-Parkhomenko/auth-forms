@@ -46,5 +46,21 @@
         "password": "t1,Tt\"~Afa42f394efec6c1984cad271e57688aa",
         "salt": "t1,Tt\"~A",
         "cookie": "hue@:}uV"
+    },
+    {
+        "name": "s",
+        "email": "user1@gmail.com",
+        "login": "user12",
+        "password": "J.+CT{Pgd781eaae8248db6ce1a7b82e58e60435",
+        "salt": "J.+CT{Pg",
+        "cookie": "v'EaBqgT"
+    },
+    {
+        "name": "ss",
+        "email": "ss@gmail.com",
+        "login": "user123",
+        "password": "#gvpSV$a6ad14ba9986e3615423dfca256d04e3f",
+        "salt": "#gvpSV$a",
+        "cookie": "_r+\"dLX'"
     }
 ]

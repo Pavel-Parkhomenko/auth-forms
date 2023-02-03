@@ -17,7 +17,10 @@ class Repository implements IRepository
         $users = json_decode($file, true) ?? [];
         $usersAsUser = [];
         foreach ($users as $user) {
-            $usersAsUser[] = new User(...$user);
+            $usersAsUser[] = new User(
+                $user["login"], $user["password"], $user["email"],
+                $user["name"], $user["salt"], $user["cookie"] 
+            );
         }
         return $usersAsUser;
     }
