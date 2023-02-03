@@ -62,5 +62,13 @@
         "password": "#gvpSV$a6ad14ba9986e3615423dfca256d04e3f",
         "salt": "#gvpSV$a",
         "cookie": "_r+\"dLX'"
+    },
+    {
+        "name": "ss",
+        "email": "sss@gmail.com",
+        "login": "user123",
+        "password": "#gvpSV$a6ad14ba9986e3615423dfca256d04e3f",
+        "salt": "#gvpSV$a",
+        "cookie": "_r+\"dLX'"
     }
 ]
